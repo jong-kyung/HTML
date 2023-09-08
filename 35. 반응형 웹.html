@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형웹</title>
+    <style>
+        * {margin:0;padding:0;}
+        h1 {text-align: center;padding:30px}
+        div {border:10px solid red;min-height: 200px;max-width: 1000px;margin:auto;}
+        div span:nth-of-type(1)  {display: none;}
+
+        @media screen and (max-width:1000px){
+            div span:nth-of-type(2) {display:none}
+        }
+        @media screen and (max-width:800px) {
+            div {border-color:green}
+            /* 구체성을 고려해서 선택자를 선택할땐 위에서 한 것과 같은 선택자로 할 것. */
+        }
+        /* 
+        max-width:800px : 최대 800px까지(800이하) 
+        min-width:800px : 최소 800px까지(800 이상)
+            */
+        /* media : 미디어 타입(화면용,출력용) 디자인을 변경할때 사용함. 
+        기본값 : all */
+        @media screen and (max-width:400px){
+            div span:nth-of-type(1) {display:inline}
+        }
+        /* max나 min중 하나만 써야 반응형이 꼬이지 않음!! */
+    </style>
+</head>
+<body>
+<h1>반응형웹</h1>   
+<div>
+    <span>모바일 전용 콘텐츠(400px이하)</span>
+    <span>PC 전용 콘텐츠(1000px이상)</span>
+    <!-- 1000px 이상이다 -> 원래의 css에 디자인하고 1000이하일때 감추면 됨. -->
+</div> 
+<ul>
+    <li>PC베이스 : max-width : 큰거에서 작은것 순으로 설정</li>
+    <li>모바일베이스 : min-width : 작은거에서 큰것 순으로 설정</li>
+    <!-- 사용자의 비율에 따라 베이스를 정해서 하면 됨, 최근엔 모바일베이스로 늘어가는 추세,기획자가 정해주는대로 함 -->
+</ul>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>보더의 활용</title>
+    <style>
+    * {margin:0; padding:0;list-style:none;}
+    #border {margin:50px;position:relative;}
+    #border li {border:50px solid red; display: inline-block;width:0px;height:0px; box-sizing:border-box;border-left:50px solid orange; border-bottom-color: green; border-right-color:blue}
+    #border li:nth-child(2) {border-right:none; border-top-color:transparent; border-bottom-color:transparent;}
+    #border li:nth-child(3) {border-right-color:transparent;border-top-color:transparent;border-bottom-color:orange}
+    #border li:nth-child(4) {border-right-color:transparent;border-top-color:transparent; border-bottom-color:orange}
+    #border li:nth-child(5) {border-left-color:transparent;border-bottom-color:transparent; border-right-color:orange; border-top-color:orange;}
+    #border li:nth-child(4),#border li:nth-child(5) {position:absolute;}
+    #border li:nth-child(5) {margin-top:100px;}
+
+    #tiger {position:fixed;width:500px;height:460px;left:50%;top:50%;margin:-230px 0 0 -250px}
+        #tiger li {position:absolute;}
+        #tiger li:nth-child(1) {border-left:110px solid yellow;border-top:80px solid transparent;border-bottom:80px solid transparent;}
+        #tiger li:nth-child(2) {border-left:55px solid black;border-top:40px solid transparent;border-bottom:40px solid transparent;}
+        #tiger li:nth-child(3) {border-right:110px solid yellow;border-top:80px solid transparent;border-bottom:80px solid transparent;right:0}
+        #tiger li:nth-child(4) {border-right:55px solid black;border-top:40px solid transparent;border-bottom:40px solid transparent;right:0}
+        #tiger li:nth-child(5) {border-right:110px solid transparent;border-left:110px solid transparent;border-bottom:125px solid yellow;width:500px;box-sizing:border-box;top:30px;}
+        #tiger li:nth-child(6) {background: yellow;height:180px;width:100%;top:155px;}
+        #tiger li:nth-child(7) {border-right:110px solid transparent;border-left:110px solid transparent;border-top:125px solid yellow;width:500px;box-sizing:border-box;top:330px;}
+        #tiger li:nth-child(8) {border-right:110px solid transparent;border-left:110px solid transparent;border-bottom:125px solid white;width:280px;box-sizing:border-box;top:330px;left:110px}
+        #tiger li:nth-child(9) {border-top:39px solid black;border-left:30px solid transparent;border-right:30px solid transparent;top:330px;left:220px}
+        #tiger li:nth-child(10),#tiger li:nth-child(11),#tiger li:nth-child(12) {border-top:60px solid black;border-left:47px solid transparent;border-right:47px solid transparent;top:31px;left:110px}
+        #tiger li:nth-child(11) {left:204px;}
+        #tiger li:nth-child(12) {left:298px;}
+        #tiger li:nth-child(13), #tiger li:nth-child(14) {border : 22px solid white; height:40px; width:40px;border-radius:50%;background:black;left:90px;top:205px;}
+        #tiger li:nth-child(14) {left:320px;top:205px;}
+        #tiger li:nth-child(14) ~ li {background: black; width:80px;height:55px;border-radius:0 100px 100px 0;}
+        #tiger li:nth-child(15) {top:180px;}
+        #tiger li:nth-child(16) {top:260px;}
+        #tiger li:nth-child(17) {top:100px;}
+
+        #tiger li:nth-child(17) ~ li {background: black; width:80px;height:55px;border-radius:100px 0 0 100px;}
+
+        #tiger li:nth-child(18).right {right:0;top:100px;}
+        #tiger li:nth-child(19).right {right:0;top:180px;}
+        #tiger li:nth-child(20).right {right:0;top:260px;}
+        /* left:auto = left 기본값 */
+    </style>
+</head>
+<body>
+<h1>보더의 활용</h1>    
+<ul id="border">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<ul id="tiger">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li class="right"></li>
+    <li class="right"></li>
+    <li class="right"></li>
+</ul>
+</body>
+</html>

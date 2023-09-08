@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상선택자(가상클래스) / 가상요소</title>
+    <style>
+        li:nth-child(1),
+        li:first-child {color:red}
+        ul:nth-of-type(1) {border:1px solid green}
+        /* ul 중 첫번째 ul 선택 */
+        a {font-weight: bold; text-decoration: none;color:orange}
+        a:hover {text-decoration:underline;color:red}
+        /* a만 태그시 :link,:visited,:hover,:active 모두 선택됨 */
+        li:nth-child(4):hover {background-color: red;color:white;}
+        /* a 태그는 글자색 상속이 안됨. */
+        li:nth-child(4):hover a {color:yellow;}
+        #fo {border:1px solid #ccc;padding:5px 10px; outline:none;}
+        #fo:focus {border-color:black}
+        #ch+span {display:none}
+        #ch:checked+span {display:inline;}
+        li:empty {border:1px solid gray}
+        li:not(li:nth-child(3)) {text-decoration:underline;}
+        /* 괄호 안 li 생략가능 = 생략은 전체태그임. ex) :nth-child(3) 모든 선택자의 3번째 형제
+        이 태그에서는 앞에서 li를 언급해주었음 */
+        input[type=text] {background: salmon;}
+        /* type만 쓰면 type이 부여된 모든 input 선택 */
+        p::before {content:"앞에 나오는 디자인 요소"; color: red}
+        p::after {content:"뒤에 나오는 디자인 요소";color:blue;}
+        div {width:200px;height:200px;background:green;border-radius:100px;position:relative;}
+        div::before,div::after {content:"1";width:40px;height:40px;background-color:black;position:absolute;left:40px;top:60px;border-radius:50%;font-size:0;}
+        div::after {right:40px;left:auto;}
+    </style>
+</head>
+<body>
+    <h1>가상선택자(가상클래스) / 가상요소</h1>
+    <ul>
+        <!-- ul을 선택하고싶으면 ul:nth-child(2)로 해야함. h1이 1번 형제이기 때문 -->
+        <li>:nth-child(n) : 형제번호로 선택</li>
+        <li>:first-child : 첫번째 형제번호 태그를 선택</li>
+        <li>:nth-of-type(n) : 해당태그의 순번으로 선택</li>
+        <li>:link/:hover/:visited/:active : 링크속성/ 마우스 올렸을 때 속성/ 방문했던 주소링크가 걸린경우 / 마우스를 누르고 있을 때<br>
+            <a href="http://naver.com">네이버</a> <a href="http://daum.net">다음</a></li>
+        <li>:focus : 포커스<input type="text" id="fo" placeholder="아이디"></li>
+        <li>:checked : 체크가 되었을 때 <input type="checkbox" id="ch"><span>선택되었습니다.</span></li>
+        <li>:empty : 콘텐츠가 비어있는 태그</li>
+        <li></li>
+        <li>:not() : 선택자를 제외한 요소</li>
+        <li>선택자[type=text] : 속성선택자</li>
+        <li></li>
+    </ul>
+<h2>가상요소</h2>
+<p>::before / ::after : 가상의 태그를 삽입한 효과</p>
+<!--  가상요소 : h1/폼문제외 다 가능 -->
+<div>얼굴</div>
+</body>
+</html>

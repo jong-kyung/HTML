@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D 관련 예제 II</title>
+    <style>
+        @font-face {
+            font-family: 'TmonMonsori';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: 'TmonMonsori';
+        }
+
+        h1 {
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 200px;
+        }
+
+        #six {
+            perspective: 1000px;
+            margin-top: 200px
+        }
+
+        #six ul {
+            width: 400px;
+            height: 300px;
+            margin: auto;
+            transform-style: preserve-3d;
+            transform-origin: center center -346px;
+        }
+
+        #six li {
+            width: 400px;
+            height: 300px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(216, 228, 243, 0.3) 150px, rgba(255, 255, 255, 0) 100%), 0 0 / cover url(img/kor.jpg);
+            position: absolute;
+            text-align: center;
+            font-size: 30px;
+            padding-top: 150px;
+            font-weight: normal;
+            box-sizing: border-box;
+            transform-origin: center center -346px;
+        }
+
+        #six li:nth-child(1) {
+            transform: rotateY(60deg)
+        }
+
+        #six li:nth-child(2) {
+            transform: rotateY(120deg);
+            background: center / cover url(img/ame.jpg);
+        }
+
+        #six li:nth-child(3) {
+            transform: rotateY(180deg);
+            background: center / cover url(img/jap.jpg);
+        }
+
+        #six li:nth-child(4) {
+            transform: rotateY(240deg);
+            background: center / cover url(img/bri.jpg);
+        }
+
+        #six li:nth-child(5) {
+            transform: rotateY(300deg);
+            background: center / cover url(img/chi.jpg);
+        }
+
+        #six li:nth-child(6) {
+            transform: rotateY(360deg);
+            background: center / cover url(img/ind.jpg);
+        }
+
+        input {
+            display: none;
+        }
+
+        #rot:checked~ul {
+            animation: ani linear 20s infinite
+        }
+
+        #menu {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            gap: 50px
+        }
+
+        #menu div {
+            padding: 0px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #ccc
+        }
+
+        #menu div:hover {
+            color: #333;
+            border-bottom: 2px solid #333;
+        }
+
+        #menu div:hover label {
+            cursor: pointer;
+        }
+
+        #m1:checked~#menu div:nth-child(1) {
+            color: #333;
+            border-bottom: 2px solid #333
+        }
+
+        #m2:checked~#menu div:nth-child(2) {
+            color: #333;
+            border-bottom: 2px solid #333
+        }
+
+        #m3:checked~#menu div:nth-child(3) {
+            color: #333;
+            border-bottom: 2px solid #333
+        }
+
+        #m4:checked~#menu div:nth-child(4) {
+            color: #333;
+            border-bottom: 2px solid #333
+        }
+
+        #m5:checked~#menu div:nth-child(5) {
+            color: #333;
+            border-bottom: 2px solid #333
+        }
+
+        #m6:checked~#menu div:nth-child(6) {
+            color: #333;
+            border-bottom: 2px solid #333
+        }
+
+        #m1:checked~ul {
+            transform: rotateY(300deg);
+        }
+
+        #m2:checked~ul {
+            transform: rotateY(240deg);
+        }
+
+        #m3:checked~ul {
+            transform: rotateY(180deg);
+        }
+
+        #m4:checked~ul {
+            transform: rotateY(120deg);
+        }
+
+        #m5:checked~ul {
+            transform: rotateY(60deg);
+        }
+
+        @keyframes ani {
+            0% {
+                transform: rotate(0);
+            }
+
+            100% {
+                transform: rotateX(360deg) rotateY(360deg)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>3D 관련 예제</h1>
+    <section>
+        <div id="six">
+            <input type="radio" id="rot"><label for="rot">회전버튼</label>
+            <input type="radio" name="menu" id="m1">
+            <input type="radio" name="menu" id="m2">
+            <input type="radio" name="menu" id="m3">
+            <input type="radio" name="menu" id="m4">
+            <input type="radio" name="menu" id="m5">
+            <input type="radio" name="menu" id="m6">
+            <ul>
+                <li>한국</li>
+                <li>미국</li>
+                <li>일본</li>
+                <li>영국</li>
+                <li>중국</li>
+                <li>인도</li>
+            </ul>
+            <div id="menu">
+                <div><label for="m1">한국</label></div>
+                <div><label for="m2">미국</label></div>
+                <div><label for="m3">일본</label></div>
+                <div><label for="m4">영국</label></div>
+                <div><label for="m5">중국</label></div>
+                <div><label for="m6">인도</label></div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카카오계정</title>
+</head>
+<body>
+    <main>
+    <h1>KaKao 로그인</h1>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>KaKao 계정 로그인</legend>
+                <input type="text" name="email" placeholder="카카오메일 아이디,이메일,전화번호">
+                <input type="password" name="password" placeholder="비밀번호">
+                <input type="checkbox" name="remember" id="remember">
+                <!--<label for="remember">로그인 상태 유지</label> -->
+                <!-- input 태그에 ID부여 후 label 태그에 ID 부여시 같은 기능 실행 -->
+                <p>로그인 상태 유지</p>
+                <p>개인정보 보호를 위해 개인 기기에서만 사용해 주세요. <a href="#">도움말보기</a></p>
+                <button type="submit">로그인</button>
+            </fieldset>
+        </form> 
+        <p>또는</p>
+        <a href="#">QR코드 로그인</a>
+        <p><a href="#">회원가입</a>, <a href="#">계정찾기</a>, <a href="#">비밀번호 찾기</a></p>
+</main>
+<footer>
+    <h2>사이트 이용안내</h2>
+    <ul>
+        <li><a href="#">이용약관</a></li>
+        <li><a href="#">개인정보 처리방침</a></li>
+        <li><a href="#">운영정책</a></li>
+        <li><a href="#">고객센터</a></li>
+        <li><a href="#">공지사항</a></li>
+        <li> 언어선택 :
+            <!-- ux디자인 -->
+            <select>
+                <!-- 언어선택을 표기해주는게 일반적임 -->
+                <option selected>한국어</option>
+                <!-- selected를 사용하면 자동으로 기본설정이 됨 -->
+                <option>Englsih</option>
+                <option>日本語</option>
+            </select>
+        </li>
+    </ul>
+    <address>Copyright &copy; Kakao Corp. All rights reserved.</address>
+    <!-- 문자코드 써주기 &~~ -->
+</footer>
+</body>
+</html>

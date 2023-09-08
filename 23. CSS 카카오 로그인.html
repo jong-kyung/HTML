@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카카오계정</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;list-style:none;font-family: 'Noto Sans KR';}
+        .screen_out {display:none}
+        h1 {text-indent:-9999px;overflow:hidden;width:90px;height:27px;background:url(img/kakao.png);margin-bottom:45px;}
+
+        /*  -- 메인 --  */  
+        main {border:1px solid #e7e7e7;width:480px;margin: 112px auto 90px;padding:60px 70px;box-sizing: border-box;position: relative;}
+        fieldset {border:none}
+
+        /* ID */
+        input:not([type=checkbox]) {border:none;border-bottom:2px solid #ebebeb;display:block;width:100%;height:45px;color:#252525;font-size:15px;font-weight:500;outline:none;cursor:pointer}
+        /* input은 기본적으로 인라인임 
+        border 이후 border-bottom을 줘야함. css는 순서대로 실행되기 때문*/
+        input:not([type=checkbox])::placeholder {color:#afb0af;font-size:15px}
+        input:not([type=checkbox]):focus {border-color:#252525}
+        input[name=email] + p {font-size:12px;color: #8e8f8e;margin:15px 0;display:none}
+        input[name=email]:focus + p {display:block}
+        input[name=email] + p strong {color:#e65f38}
+
+        /* 로그인상태유지 */
+        #remember {width:20px; height:20px;position:absolute;margin-top:28px;cursor:pointer}
+        #remember span {display:block;width:100%;height:100%;background: 0px 20px / 300px 320px url(img/kakao.png)}
+        #remember input:checked + span {background-position-y: -30px}
+        /* 폭만써줘도 이미지 비율에 맞게 들어가기때문에 높이는 생략해도됨 */
+        #remember input {display:none;}
+        #remember + label {margin:29px 0 43px; text-indent:29px;font-size:13px;display:block;cursor: pointer;}
+        /* label : 기본 속성이 inline */
+        #help {display:none;}
+        #help+p {position:absolute;background:rgba(0, 0, 0, 0.8);width:calc(100% - 190px);padding:6px 10px 10px;color:white;font-size:12px;box-sizing: border-box;border-radius:5px;margin-top:-30px;display:none}
+        #help+p a {display:block;color:#fbdd0d}
+        #help:checked+p {display:block}
+
+        /*  로그인  */
+        .bt {display:block;border-radius:5px;background:#fee500;width:100%; height:50px;border:none;font-size:15px;font-weight: 500;text-align: center;line-height: 50px;text-decoration: none;color:#252525;cursor: pointer;}
+        form+p {text-align: center;font-size:14px;color:#c6c7c6;width:40px;margin:auto;height:50px;line-height: 50px;background:white;}
+        form+p::before {content:'';position:absolute;border-top:1px solid #f0f0f0;width:calc(100% - 140px);left:70px;margin-top:25px;z-index: -1;}
+        /* z-index 기본값 : 0 이어서 -1을 써주면 뒤로 간것처럼 보임  */
+        a.bt {background-color: #f0f0f0;}
+        a.bt:hover {background:#e7e7e7}
+        a.bt::before {content:"";display: inline-block;width:14px;height:14px;background: 219px -201px / 300px url(img/kakao.png);transform:translate(-12px,2px)}
+        
+
+        /* 로그인 하단 */
+        main>p:last-child {display: flex;margin:34px 0 0 0;gap:21px}
+        main>p:last-child a {color:#7a7c7a;text-decoration: none;font-size:13px;}
+        main>p:last-child a:nth-child(1) {flex:1}
+
+        main>p:last-child a:last-child::before {content:"";border-left:1px solid #e7e7e7;position:absolute;height:10px;margin:5px 0 0 -10px}
+        /*  -- 푸터 --  */
+        footer {border-top:1px solid #e7e7e7; padding: 20px 0 115px;}
+        footer ul {display: flex;justify-content: center;gap:20px;}
+        footer ul :where(a,select) {text-decoration: none;color:#636363;font-size: 12px;font-weight:400;border:none}
+        /* 앞이 같을때 사용가능 footer ul a, footer ul select -> footer ul:where */
+        footer address {text-align: center;font-style:normal;color:#636363;font-size: 11px;padding-top:7px}
+        footer address a {text-decoration: none;color:#636363;font-weight:700}
+        
+        @media screen and (max-width:580px){
+            body {height:100vh}
+            main {border-bottom:1px solid #e7e7e7;border-top:1px solid transparent;border-right:1px solid transparent;border-left:1px solid transparent;width:100%;margin: 0 auto;padding: 60px 15px 340px;}
+            h1 {width:73px;height:23px;margin: 0 auto 45px;background-position:-160px 0 ;}
+            form+p {font-size:12px}
+            main>p:last-child a {font-size:12px;}
+            footer {padding: 10px 0}
+            footer ul {padding:0 30px;gap:8px;letter-spacing: -1px;}
+            #remember + label {font-weight: 400;margin-bottom: 30px;}
+        }
+        @media screen and (max-width:420px){
+            footer ul {flex-wrap:wrap;max-width:250px;margin:auto;gap:0 15px}
+            /* gap 상하좌우값을 따로 줄 수 있음. */
+        }
+    </style>
+</head>
+<body>  
+    <main>
+    <h1>KaKao 로그인</h1>
+        <form action="#" method="post">
+            <fieldset>
+                <legend class="screen_out">KaKao 계정 로그인</legend>
+                <input type="text" name="email" placeholder="카카오메일 아이디,이메일,전화번호" autocomplete="off">
+                <!-- 추천어 끌땐 마크업시 autocomplete 사용 해주기 / 기본값 : on -->
+                <p><strong>TIP</strong> 카카오메일이 있다면 메일 아이디만 입력해 보세요.</p>
+                <input type="password" name="password" placeholder="비밀번호">
+                <label id="remember"><input type="checkbox" name="remember" ><span></span></label>
+                <!-- 
+                    - label로 묶여있으면 같은기능을 함. 하지만 같이 묶어쓰진 않음
+                 -->
+                <label for="help">로그인 상태 유지</label><input type="checkbox" id="help">
+                <p>개인정보 보호를 위해 개인 기기에서만 사용해 주세요. <a href="#">도움말 보기</a></p>
+                <button type="submit" class="bt">로그인</button>
+            </fieldset>
+        </form> 
+        <p>또는</p>
+        <a href="#" class="bt">QR코드 로그인</a>
+        <p><a href="#">회원가입</a><span class="screen_out">,</span> <a href="#">계정찾기</a><span class="screen_out">,</span> <a href="#">비밀번호 찾기</a></p>
+</main>
+<footer>
+    <h2 class="screen_out">사이트 이용안내</h2>
+    <ul>
+        <li><a href="#">이용약관</a></li>
+        <li><a href="#"><strong>개인정보 처리방침</strong></a></li>
+        <li><a href="#">운영정책</a></li>
+        <li><a href="#">고객센터</a></li>
+        <li><a href="#">공지사항</a></li>
+        <li><span class="screen_out"> 언어선택 : </span>
+            <!-- ux디자인 -->
+            <select>
+                <!-- 언어선택을 표기해주는게 일반적임 -->
+                <option selected>한국어</option>
+                <!-- selected를 사용하면 자동으로 기본설정이 됨 -->
+                <option>Englsih</option>
+                <option>日本語</option>
+            </select>
+        </li>
+    </ul>
+    <address>Copyright &copy; <a href=#><strong>Kakao Corp.</strong></a> All rights reserved.</address>
+    <!-- 문자코드 써주기 &~~ -->
+</footer>
+</body>
+</html>

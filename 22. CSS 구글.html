@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+        * {margin:0;padding:0;list-style: none;box-sizing: border;}
+        .screen_out {display:none}
+        html,body {height:100%;}
+        button {cursor:pointer}
+        
+        /* -- 헤더 -- */
+        header {height:65px;padding: 13px 32px 0;}
+        header ul {display: flex;gap: 22px;}
+        header li {height:50px;display:flex;align-items: center;}
+        header li:nth-child(2) {flex:1;}
+        /* flex:1 = 나머지 여백을 갖게한다, 기본값 : 0, 2개를 주면 2개가 여백을 나눠가짐 */
+        header a {font-size:14px; color: #202124;text-decoration: none;}
+        header a:hover {text-decoration: underline;}
+        header button {display:block;text-indent: -9999px;overflow: hidden;width: 35px;height: 35px;border-radius: 50px;border:none;position:relative;background:white}
+        header button .fa {position:absolute;left:50%;top:50%;text-indent: initial;transform: translate(-50%,-50%);font-size:17px;color:#5f6368}
+        /* %로 설정하였기 때문에 크기와 관계없이 중앙정렬됨 */
+        header li:nth-child(5) button:hover {background:#f0f0f0}
+        header li:last-child:before {content:"이";color:white;position:absolute;z-index: 100;margin-left:9px}
+        /* z-index : 포지션 쓴 태그 중 레이어를 위로 올려주는 기능 */
+        header li:last-child button {background-color:darkkhaki;border: 4px solid white}
+        /* 크기를 넣어놔야 위치가 변하지 않음 */
+        header li:last-child button:hover {background-color:darkkhaki;border-color:#f0f0f0}
+
+
+        /* -- 메인 -- */
+        main {max-width:600px;margin:auto;height:calc(100% - 384px);padding-top:180px;}
+        /* 블럭을 가운데로 오게할땐 margin:auto */
+        main h1 {text-indent:-9999px;overflow: hidden;width:272px;height: 92px;margin: 0 auto 25px;background:no-repeat center / contain url(img/googlelogo.png);}
+        /* 가로세로비율이 틀릴 수도 있으니 contain으로 가득채우는 방식을 하는게 좋음 */
+        /* 마진의 시작점이 같은곳에 있는애들은 마진을 다 똑같이 먹기때문에 문제가 생김 */
+        fieldset {border:none;padding: 0 20px;box-sizing: border-box;}
+        fieldset > div {border: 1px solid #dfe1e5;border-radius: 1000px;max-width:580px ; height:40px; margin:auto;display:flex;background:white;}
+        fieldset > div:hover {box-shadow: 0 0 4px 0 #dcdcdd;}
+        fieldset > div::before {content:"\f002";font-family:'FontAwesome';color:#9aa0a6;padding:12px 0 0 15px;font-size:14px}
+        /* 역슬래시 : 유니코드라는걸 인식하게 해주기 위해 사용 */
+        fieldset > div input {flex:1;border:none;margin-left:10px;font-size:18px;}
+        fieldset > div button {width:40px;border:none; background:no-repeat center / 19px url(img/google_key.png);text-indent: -9999px;overflow: hidden;}
+        /* 부모가 flex면 자동으로 block 방식으로 바뀜 */
+        fieldset > div button:nth-of-type(2) {background-image:url(img/google_mic.svg);}
+        fieldset > div button:nth-of-type(3) {background-image:url(img/google_img.svg);}
+        fieldset > p {display: flex;justify-content: center;gap:12px;margin-top:30px;}
+        /* flex:display;justify-content:center로 줘도됨 */
+        fieldset .bt {border:1px solid white;border-radius: 5px;background:#f8f9fa;padding:10px 15px;text-decoration:none;color:#202124;font-size:14px}
+        /* 크기는 안줘도 되고 글자크기를 조절하면 됨 
+            a 태그가 flex가 아니였으면 인라인이여서 padding이 안먹음*/
+        fieldset .bt:hover {border-color: #dadce0;box-shadow: 0 1px 1px 0 #ccc;}
+
+        /* -- 푸터 -- */
+        footer {min-height:125px;background:#f2f2f2;}
+        footer > p {height:50px;border-bottom:1px solid #dadce0;padding:26px 0 30px 32px;font-size:15px;color:#70757a;box-sizing: border-box;}
+        footer > ul {display:flex;white-space: nowrap;}
+        footer >ul a {text-decoration: none;height:10px;display:block;padding:19px 17px 0;color:#70757a;font-size:14px;}
+        footer>ul>li:nth-child(3) {flex:1}
+
+        @media screen and (max-width:1200px) {
+            footer ul {width: 70%;margin:auto;}
+        }
+        @media screen and (max-width:630px) {
+            footer ul {width:300px;margin:auto;padding:0 40px;flex-wrap: wrap;justify-content: center;}
+            footer>ul>li:nth-of-type(3) {flex:none}
+            footer > ul > li {height:30px}
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h2 class="screen_out">주요서비스</h2>
+    <!-- 우리나라에서는 주요서비스(=메인메뉴)란 말을 더 많이 사용 -->
+    <nav>
+        <ul>
+            <li><a href="#"><strong>Google</strong> 정보</a></li>
+            <li><a href="#">스토어</a></li>
+            <li><a href="#">Gmail</a></li>
+            <li><a href="#">이미지</a></li>
+            <li><button><i class="fa fa-th"></i>Google 앱</button></li>
+            <li><button>Google 계정</button></li>
+        </ul>
+        <!-- a 태그시 #은 본인 자신을 링크로 건다는 의미 -->
+    </nav>
+</header>
+<main>
+    <h1>구글</h1>
+    <form action="#" method="get">
+        <!-- get : 주소창에 정보를 실어주는 방식(검색)-->
+        <!-- post : 내부적으로 안 보이게 정보를 보내주는 방식(비밀번호) -->
+        <fieldset>
+            <legend class="screen_out">통합검색</legend>
+            <div>
+                <input type="text" name="q"><button>입력 도구</button><button>음성 검색</button><button>이미지 검색</button>
+            </div>
+            <p>
+            <button type="submit" class="bt">Google 검색</button>
+            <a href="#" class="bt">I'm Feeling Lucky</a>
+            </p>
+        </fieldset>
+    </form>
+</main>
+<footer>
+    <p><span class="screen_out">접속지역 : </span>대한민국</p>
+    <h2 class="screen_out">사이트정보</h2>
+    <ul>
+        <li><a href=#>광고</a></li>
+        <li><a href=#>비즈니스</a></li>
+        <li><a href=#>검색의 원리</a></li>
+        <li><a href=#>개인정보처리방침</a></li>
+        <li><a href=#>약관</a></li>
+        <li><a href=#>설정</a></li>
+    </ul>
+</footer>
+</body>
+</html>

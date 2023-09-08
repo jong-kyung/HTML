@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS기본</title>
+    <link href="09.css" rel="stylesheet">
+    <!-- 보통 link 태그에 들어가는건 ~~.css -->
+    <style>
+        * {
+            border: 1px solid red;
+        }
+
+        html {
+            border: 3px solid green;
+        }
+
+        h2>span {
+            color: orange;
+        }
+
+        #purple {
+            color: purple;
+        }
+
+        .black {
+            color: black
+        }
+
+        #selector li:nth-child(3) {
+            background: red;
+        }
+
+        /* 셀렉터의 li 중 3번째 자식 */
+        input[type=password] {
+            border: 3px solid green;
+        }
+
+        html,
+        body,
+        h2>span {
+            font-size: 15px
+        }
+
+        #selector+h2 {
+            background: green
+        }
+
+        /* h2 셀렉터의 다음 형제 하나(h2)가 선택됨(앞의 h2는 선택되지 않음) */
+        #selector~h2 {
+            color: blue
+        }
+
+        /* h2 셀렉터의 다음 형제 모두(h2들)가 선택됨 */
+        #last>li>span {
+            color: red;
+            text-decoration: underline;
+        }
+
+        #last>li>span>span {
+            color: black;
+            text-decoration-color: blue;
+            font-style: italic
+        }
+
+        /* #last에서 첫번째 li 자식 span만 밑줄 (text-decotration:underline)*/
+        .green {
+            color: #0e7c1b
+        }
+    </style>₩
+    <!-- ';쓰는 이유 : 여러 속성을 다 넣어주려고, 속성이 1개면 생략 가능
+    (하나의 속성이 끝났다는 의미)  -->
+    <!-- style 태그는 보통 head의 마지막에 작성함 -->
+</head>
+
+<body>
+    <h1>CSS기본</h1>
+    <ul>
+        <li>Cascading Style Sheets의 약자</li>
+        <!-- 상속을 하며 속성을 줌 ex) ul에 빨간색을 주면 li도 빨간색-->
+        <li>HTML문서에서 디자인을 꾸미는 모든 활동</li>
+        <li style="color:red">인라인방식 : 태그에 속성으로 직접 작성, 비표준이므로 사용을 비권고</li>
+        <li>내부스타일 : style 태그로 작성, 비표준</li>
+        <li>외부스타일 : link 태그로 불러와서 적용하는 방식</li>
+        <li>CSS속성은 기본적으로 부모(조상)에서 자식으로 상속을 받는다</li>
+    </ul>
+    <h2><span>CSS 선택자</span></h2>
+    <ul id="selector">
+        <li class="black">* : 전체선택자</li>
+        <!-- 모든 태그를 의미함 -->
+        <li class="black">태그: 요소선택자</li>
+        <li>'스페이스바': <span>자손선택자</span></li>
+        <!-- 스페이스바 -->
+        <li>> : 자식선택자</li>
+        <li id="purple"># : 아이디선택자</li>
+        <li>. : 클래스선택자</li>
+        <!-- id는 고유한 것 하나만, class는 중복 사용 가능 -->
+        <li>nth-child() : 가상선택자(형제번호)</li>
+        <li>[태그의속성] : 속성선택자
+            <input type="text">
+            <input type="password">
+            <input type="checkbox">
+        </li>
+        <li>, : 그룹선택자</li>
+        <li>+ : 형제선택자</li>
+        <li>~ : 앞 선택자의 동생들을 선택</li>
+    </ul>
+    <h2>CSS 색상표현의 종류</h2>
+    <ul>
+        <li>색상명: red, green...</li>
+        <li class="green">웹색상코드(16진수) : 0~9 + A~F, 0~255(RGB)</li>
+        <li>rgb : rgb(255,0,0)</li>
+        <li>rgba : rgba(255,0,0,1)</li>
+        <!-- a는 알파를 의미, 디자인에서 알파는 투명을 의미 -->
+    </ul>
+    <ul id="last">
+        <li><span>나는 첫번째<span>두번째</span></span></li>
+        <li><span>나는 첫번째<span>두번째</span></span></li>
+        <li><span>나는 첫번째<span>두번째</span></span></li>
+    </ul>
+</body>
+
+</html>

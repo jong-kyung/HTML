@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 (float)</title>
+    <style>
+        * {margin:0;padding:0;list-style:none;}
+        h1{text-align: center;padding:20px;}
+        
+        ul {border:1px solid red;width:400px;overflow:hidden;}
+        li {background:green;width:100px;height: 100px; float:left;margin:10px;}
+        /* float은 좌우값을 바꾸면 컨텐츠 내용도 순서가 바뀜 */
+        li:nth-child(2) {clear: left;}
+        /* clear:left : 왼쪽을 초기화 한다 -> 엔터기능과 유사함 */
+        li:last-child {overflow:hidden}
+        /* overflow : 현재 영역에서 넘어가는 컨텐츠를 안 보이게 처리함 */
+    </style>
+</head>
+<body>
+<h1>레이아웃(float)</h1>
+<!-- 잘 사용하지는 않지만 알고는 있어야함 -->
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+    <li>11 asdfsdgfdshgjtwerwterhsfsdavxczxcvzxcvzgwrhgsfa</li>
+</ul>
+</body>
+</html>

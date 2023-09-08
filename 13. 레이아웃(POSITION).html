@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 I</title>\
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+        /* reset 디자인시 가장 먼저 해주어야하는 과정 */
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            display: block;
+        }
+
+        /* 이미지의 크기를 블럭에 맞게 변경
+            -> 이미지는 코딩하게되면 인라인이 기본값이기 때문임 */
+
+        /* common */
+        .screen_out {
+            display: none;
+        }
+
+        /* main */
+        #happy {
+            padding: 20px;
+            border: 1px solid red;
+            width: 744px;
+            position: relative;
+        }
+
+        #happy h3 {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        #happy .fa-angle-right {
+            font-size: 20px;
+            position: absolute;
+            margin-left: 5px;
+        }
+
+        #happy>p {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+
+        #happy>p button {
+            font-size: 0;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        /* 커서는 hover상태에서만 작동함. hover태그를 별도로 안해도 됨 */
+        #happy>p button .fa:hover {
+            color: #3e63be
+        }
+
+        #happy>p button .fa {
+            font-size: 16px;
+            color: #8f9194;
+        }
+
+
+        #happy li {
+            width: 232px;
+        }
+
+        #happy li:nth-child(2) {
+            position: absolute;
+            left: 276px;
+            top: 39px
+        }
+
+        #happy li:nth-child(3) {
+            position: absolute;
+            left: 528px;
+            top: 39px
+        }
+
+        #happy img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        /* object-fit:cover : 이미지 비율 유지 */
+        #happy li {
+            position: relative;
+            margin-top: 20px;
+        }
+
+        #happy p:first-child {
+            color: white;
+            width: 44px;
+            height: 30px;
+            text-align: center;
+            font-size: 12px;
+            background-color: #c08d31;
+            position: absolute;
+            padding-top: 7px;
+            box-sizing: border-box;
+        }
+
+        #happy a {
+            font-size: 13px;
+            color: #202020;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #happy p:last-child {
+            font-size: 12px;
+            color: #505050;
+            margin-top: 7px;
+        }
+
+        #happy li:nth-child(3)>p:nth-child(3) {
+            letter-spacing: -0.02em;
+        }
+
+        /* 1 em : body에 M을 썻을때 M 한 개의 크기*/
+        #happy p:last-child>span:nth-child(3) {
+            color: #c08d31;
+            padding-left: 9px
+        }
+
+        #happy span.middle_dot {
+            text-indent: -9999px;
+            position: absolute;
+        }
+
+        #happy span.middle_dot::after {
+            content: ".";
+            position: absolute;
+            color: #505050;
+            left: 0;
+            font-size: 16px;
+            text-indent: 0;
+            margin-top: -8px;
+        }
+
+        /* flex 버전 */
+        #flex {
+            padding: 20px;
+            border: 1px solid red;
+            width: 744px;
+            position: relative
+        }
+
+        #flex h3 {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        #flex .fa-angle-right {
+            font-size: 20px;
+            position: absolute;
+            margin-left: 5px;
+        }
+
+        #flex>p {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+
+        #flex>p button {
+            font-size: 0;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        /* 커서는 hover상태에서만 작동함. hover태그를 별도로 안해도 됨 */
+        #flex>p button .fa:hover {
+            color: #3e63be
+        }
+
+        #flex>p button .fa {
+            font-size: 16px;
+            color: #8f9194;
+        }
+
+
+
+        #flex img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        /* object-fit:cover : 이미지 비율 유지 */
+        #flex ul {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        #flex ul li {
+            width: 230px
+        }
+
+        /* 이미지 구성 */
+
+        #flex p:first-child {
+            color: white;
+            width: 44px;
+            height: 30px;
+            text-align: center;
+            font-size: 12px;
+            background-color: #c08d31;
+            position: absolute;
+            padding-top: 7px;
+            box-sizing: border-box;
+        }
+
+        #flex a {
+            font-size: 13px;
+            color: #202020;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #flex p:last-child {
+            font-size: 12px;
+            color: #505050;
+            margin-top: 7px;
+        }
+
+        #flex li:nth-child(3)>p:nth-child(3) {
+            letter-spacing: -0.02em;
+        }
+
+        /* 1 em : body에 M을 썻을때 M 한 개의 크기*/
+        #flex p:last-child>span:nth-child(3) {
+            color: #c08d31;
+            padding-left: 9px
+        }
+
+        #flex span.middle_dot {
+            text-indent: -9999px;
+            position: absolute;
+        }
+
+        #flex span.middle_dot::after {
+            content: ".";
+            position: absolute;
+            color: #505050;
+            left: 0;
+            font-size: 16px;
+            text-indent: 0;
+            margin-top: -8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>레이아웃 I</h1>
+    <h2>디자인시안</h2>
+    <img src="img/adv.png" alt="디자인시안">
+    <h2>CSS(flex)</h2>
+    <section id="flex">
+        <h3>오늘 가장 따뜻한 클릭 <i class="fa fa-angle-right"></i></h3>
+        <p>
+            <button><span>게시판형 리스트</span><i class="fa fa-th-list"></i></button>
+            <button><span>갤러리형 리스트</span><i class="fa fa-th-large"></i></button>
+            <button><span>환경설정</span><i class="fa fa-cog"></i></button>
+        </p>
+        <ul>
+            <li>
+                <p><span class="screen_out">카테고리 : </span>펀딩</p>
+                <a href="#"><img src="img/13-1.jpg" alt="펀딩썸네일"></a>
+                <p><a href="#">보호종료아동을 응원하는 캐릭터 굿즈</a></p>
+                <p><span class="screen_out">작성자: </span>명랑캠페인 <span class="middle_dot">/</span> <span>273%</span> 달성</p>
+            </li>
+            <li>
+                <p><span class="screen_out">카테고리 : </span>펀딩</p>
+                <a href="#"><img src="img/13-2.jpg" alt="펀딩썸네일"></a>
+                <p><a href="#">국산 원재료만을 사용한 건강한 반려동물 채소껌</a></p>
+                <p><span class="screen_out">작성자: </span>로렌츠 <span class="middle_dot">/</span> <span>159%</span> 달성</p>
+            </li>
+            <li>
+                <p><span class="screen_out">카테고리 : </span>기부</p>
+                <a href="#"><img src="img/13-3.jpg" alt="기부썸네일"></a>
+                <p><a href="#">비대면 수업, 수업을 따라가기엔 너무 벅차기만 합니다.</a></p>
+                <p><span class="screen_out">작성자: </span>녹색교통운동 <span class="middle_dot">/</span> <span>373,500원</span>
+                    기부</p>
+            </li>
+        </ul>
+    </section>
+    <h2>CSS</h2>
+    <section id="happy">
+        <h3>오늘 가장 따뜻한 클릭 <i class="fa fa-angle-right"></i></h3>
+        <p>
+            <button><span>게시판형 리스트</span><i class="fa fa-th-list"></i></button>
+            <button><span>갤러리형 리스트</span><i class="fa fa-th-large"></i></button>
+            <button><span>환경설정</span><i class="fa fa-cog"></i></button>
+        </p>
+        <ul>
+            <li>
+                <p><span class="screen_out">카테고리 : </span>펀딩</p>
+                <a href="#"><img src="img/13-1.jpg" alt="펀딩썸네일"></a>
+                <p><a href="#">보호종료아동을 응원하는 캐릭터 굿즈</a></p>
+                <p><span class="screen_out">작성자: </span>명랑캠페인 <span class="middle_dot">/</span> <span>273%</span> 달성</p>
+            </li>
+            <li>
+                <p><span class="screen_out">카테고리 : </span>펀딩</p>
+                <a href="#"><img src="img/13-2.jpg" alt="펀딩썸네일"></a>
+                <p><a href="#">국산 원재료만을 사용한 건강한 반려동물 채소껌</a></p>
+                <p><span class="screen_out">작성자: </span>로렌츠 <span class="middle_dot">/</span> <span>159%</span> 달성</p>
+            </li>
+            <li>
+                <p><span class="screen_out">카테고리 : </span>기부</p>
+                <a href="#"><img src="img/13-3.jpg" alt="기부썸네일"></a>
+                <p><a href="#">비대면 수업, 수업을 따라가기엔 너무 벅차기만 합니다.</a></p>
+                <p><span class="screen_out">작성자: </span>녹색교통운동 <span class="middle_dot">/</span> <span>373,500원</span>
+                    기부</p>
+            </li>
+        </ul>
+    </section>
+    <h2>마크업(html)</h2>
+    <section>
+        <h3>오늘 가장 따뜻한 클릭 ></h3>
+        <p>
+            <button>게시판형 리스트</button>
+            <button>갤러리형 리스트</button>
+            <button>환경설정</button>
+        </p>
+        <ul>
+            <li>
+                <p>카테고리 : 펀딩</p>
+                <a href="#"><img src="img/13-1.jpg" alt="펀딩썸네일"></a>
+                <p><a href="#">보호종료아동을 응원하는 캐릭터 굿즈</a></p>
+                <p>작성자: 명랑캠페인 / 273% 달성</p>
+            </li>
+            <li>
+                <p>카테고리 : 펀딩</p>
+                <a href="#"><img src="img/13-2.jpg" alt="펀딩썸네일"></a>
+                <p><a href="#">국산 원재료만을 사용한 건강한 반려동물 채소껌</a></p>
+                <p>작성자: 로렌츠 / 159% 달성</p>
+            </li>
+            <li>
+                <p>카테고리 : 기부</p>
+                <a href="#"><img src="img/13-3.jpg" alt="기부썸네일"></a>
+                <p><a href="#">비대면 수업, 수업을 따라가기엔 너무 벅차기만 합니다.</a></p>
+                <p>작성자: 녹색교통운동 / 373,500원 기부</p>
+            </li>
+        </ul>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nate Login</title>
+    <style>
+        * {padding:0;margin:0;list-style:none;font-family:'맑은고딕' ;}
+        .screen_out {display:none;}
+        
+        header{height:35px;background:#f2f2f2;border-bottom: 1px solid #9f9f9f;}
+        header ul {display:flex;}
+        header a {display:block;width:78px;height:35px;text-indent:-9999px;overflow: hidden;background:no-repeat 0px 0px / 950px url(img/nate_banner.png);transition: ease all .3s}
+        header li:nth-child(2) a {background-position-x: -81px;width:80px;}
+        header li:nth-child(3) a {background-position-x: -324px;width:76px;}
+        header li:nth-child(4) a {background-position-x: -405px;}
+        header a:hover {background-position-y: -50px;width:76px;}
+        
+
+        main {height:2130px;background:no-repeat center top/ 1299px url(img/nate_login.png), linear-gradient(180deg,rgba(242,242,242,1) 400px,rgba(242,242,242,0) 400px);padding-top:83px;border-bottom:1px solid #e2e2e2;}
+        /* 400px 400px -> 400px 까진 그라디언트고 그 이후는 투명색준다 
+        순서를 맞춰줘야 그림이 위로 올라오고 배경색이 아래로 내려감*/
+        main > div {background:white;width:440px;height: 390px;border-radius: 8px;margin:auto;padding:40px;box-sizing: border-box;box-shadow: 0 2px 1px 1px #e2e2e2;position:relative}
+        main h1 a {display:block;width:64px;height:18px;text-indent:-9999px;overflow:hidden;margin:0 auto 30px;background:no-repeat 0 / 64px url(img/nate_logo.png);}
+        main fieldset {border:none}
+        main .id_help{width:218px;height:115px;background:no-repeat 0 0 / 218px url(img/nate_popup.png);position:absolute;top:-26px;display:none;box-sizing:border-box;padding:17px 15px 0;}
+        main .id_help p {font-size:11px;color:#2d3740;line-height:15px;margin-bottom:5px}
+        main input:focus + .id_help {display: block;}
+        main .id_help p strong {color:#65a4d6;font-weight: bold;}
+        main .id_help p:last-child {color:#fa4647;}
+        input:not(#auto) {width:100%;height:50px;display:block;border:1px solid #e2e2e2;border-radius:3px;padding: 0 20px;box-sizing:border-box;font-size:15px;}
+        input[type=passwcord] {margin: 8px 0;}
+        main label[for=auto] {color: #858585;transform: translate(5px, 2px);position:absolute;font-size:12px;cursor: pointer;}
+        main p + a {position:absolute;right:40px;font-size:12px;color:#858585}
+
+        main .auto_help {border:1px solid #fa4647;width:160px;height:60px;padding:8px 10px 0;left:-1px;top:0;position:absolute;box-sizing:border-box;font-size:11px;line-height: 14px;background:white;color:#858585;letter-spacing: -1px;display: none;}
+        main #auto:checked ~ .auto_help{display: block;}
+
+        main .auto_help a {color:#fa4647;margin-left:3px}
+        main .auto_help a:after {content: "";position:absolute;border-left:3px solid #fa4647;border-top:3px solid transparent;border-bottom:3px solid transparent;margin:4px 0 0 2px;}
+        
+        main button:last-child {display:block;width:100%;height:50px;background:#fa4647;border-radius: 3px;border:none;color:white;font-weight:bold;font-size:14px;margin-top:20px;cursor: pointer;}
+        main form + p {text-align: center;margin-top:40px}
+        main form + p a {color:#9f9f9f;font-size:12px;}
+        main form +p a:not(:last-child) {margin-right:20px;}
+        main form +p a:not(:last-child)::after {content:'';border-left:1px solid #dfe0e7;position:absolute;margin:6px 0 0 13px;height:12px}
+        main::before {content:'';position:absolute;border-top:1px solid #e2e2e2;border-bottom:1px solid #e2e2e2;width:100%;height:531px;top:1022px}
+
+        footer {height:260px;width:660px;margin:auto;box-sizing: border-box ;padding-top:102px;position:relative}
+        footer h2 {font-weight: 500;font-size:22px}
+        footer address {font-size:13px;font-style:normal;color:#a3a3a3;margin-top:8px}
+        footer p {position:absolute;right:0;top:102px;display:flex;gap:20px;}
+        footer p a {border:1px solid #ccc;width:200px;height:55px;border-radius: 3px;text-indent: -9999px;overflow:hidden;background:no-repeat center / 108px url(img/nate_footer_an.png)}
+        footer p a:last-child {background: no-repeat center / 69px url(img/nate_footer_io.png)}
+    </style>
+</head>
+<body>
+    <header>
+        <h2 class="screen_out">메인메뉴</h2>
+        <nav>
+            <ul>
+                <li><a href="#" title="네이트 첫 페이지 바로가기">네이트홈</a></li>
+                <!-- 보통 이미지를 제외하고는 타이틀을 다 적어줌 -->
+                <li><a href="#">메일</a></li>
+                <li><a href="#">문자</a></li>
+                <li><a href="#">주소록</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div>
+            <h1><a href="#">네이트메일 로그인</a></h1>
+            <form action="#" method="post">
+                <fieldset>
+                    <legend class="screen_out">로그인정보</legend>
+                    <input type="text" name="user_id" placeholder="네이트 ID" class="lg">
+                    <div class="id_help">
+                            <p><strong>엠파스, 라이코스, 넷츠고 </strong>아이디는<br>계정까지 모두 입력 해 주세요</p>
+                            <p>예) empal 메일의 경우<br> @empas.com을 입력해주세요</p>
+                    </div>
+                    <input type="password" name="use_pw" placeholder="네이트 비밀번호">
+                    <input type="checkbox" name="auto" id="auto"><label for="auto">로그인 유지</label>
+                        <p class="auto_help">개인정보 보호를 위해<br>개인PC에서만<br>사용해 주세요. <a href="#">도움말 보기</a></p>
+                    <a href="#">IP 보안 <strong>ON</strong></a>
+                    <button type="submit">로그인</button>
+                </fieldset>
+            </form>
+            <p><a href="#">아이디찾기</a>  <a href="#">비밀번호 찾기</a>  <a href="#">회원가입</a></p>
+        </div>
+        <h2 class="screen_out">네이트메일의 특징</h2>
+        <ul class="screen_out">
+            <li><p>쉽고 빠른 편집</p>
+            <p>메일 선택 후 내 메일함으로 끌어당겨보세요.<br>손쉽게 이동 및 삭제를 할 수 있습니다.</p>
+            </li>
+            <li><p>스마트한 우측 뷰</p>
+            <p>쓰기에 자주 사용하는 메일주소를 저장할 수 있으며<br>편지함에서는 분할 모드로 미리보기를 할 수 있습니다.</p>
+            </li>
+            <li><p>간편하고 빠른 간단쓰기</p>
+                <p>메일 쓰기에서 우측아이콘을 통해 간단쓰기가 가능합니다.</p>
+                </li>
+        </ul>
+    </main>
+    <footer>
+        <h2>네이버메일 APP</h2>
+        <p><a href="#">Android</a>
+        <a href="#">iOS</a></p>
+        <address>&copy; SK communications</address>
+    </footer>
+</body>
+</html> 

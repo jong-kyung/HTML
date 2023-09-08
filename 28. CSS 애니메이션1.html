@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation I</title>
+<style>
+    * {margin:0;padding:0;}
+    h1 {padding:30px;text-align: center;}
+    .heart {border-top:100px solid red;border-left:126px solid transparent;border-right:126px solid transparent;width:0;margin:180px auto;position:relative;box-sizing: border-box;transform-origin: center -30px;}
+    /* 
+    가로 세로 
+    보통 가로는 center로 하면 중앙이지만 세로는 좀 드뭄
+    */
+    .heart::before, .heart::after {content: "";width:170px;height: 170px;border-radius: 50%;position: absolute;background: red;transform: translate(-150px,-244px);}
+    .heart::after {transform: translate(-20px,-244px);border-radius: 100px 100px 100px 0;}
+    .heart:nth-of-type(1) {animation: ani linear 1s infinite;}
+    /* 이름 / 가속도 / 재생시간 / 횟수(1,2 ~ infi) */
+    .heart:nth-of-type(2) {animation: ani2 linear .5s infinite;}
+    .heart:nth-of-type(3) {animation: ani3 ease-in-out 1s infinite alternate;transform-origin:bottom;}
+    @keyframes ani {
+        from {transform: rotate(0);}
+        to {transform: rotate(360deg);}
+    }
+    @keyframes ani2 {
+        0% {transform: scale(1)}
+        25% {transform: scale(1.2)}
+        50% {transform: scale(0.8)}
+        75% {transform: scale(1.1)}
+        100% {transform: scale(1);}
+    }
+    @keyframes ani3 {
+        from {transform: rotate(-20deg);}
+        to {transform: rotate(20deg)}
+    }
+    /* 심장 두근 두근  */
+</style>
+</head>
+<body>
+<h1>Animation I</h1>
+<div class="heart"></div> 
+<div class="heart"></div> 
+<div class="heart"></div>
+<ul>
+    <li>animation-delay : 지연시작</li>
+    <li>animation-fill-mode : forwards (애니메이션 마지막 프레임에서 정지)</li>
+    <li>애니메이션 속성은 ,로 추가가능</li>
+</ul> 
+</body>
+</html>

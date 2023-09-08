@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation III</title>
+    <style>
+        * {margin:0;padding:0}
+        h1 {text-align: center;padding:30px;}
+        div {width:120px;height:120px}
+        section {display: flex;justify-content: center;gap:100px}
+        section h2 {display: none;}
+        #action1 {background: no-repeat  0 0 /1200px url(img/30_sprite_img.png);animation: action 1s infinite steps(10);}
+        /* setps(n) : n개의 장면으로 보여준다 */
+        #action2 {background: no-repeat  -10px -120px /1200px url(img/30_sprite_img.png);animation: action2 1s infinite steps(10)}
+        #action3 {background: no-repeat  -10px -240px /1200px url(img/30_sprite_img.png);animation: action2 1s infinite steps(10)}
+        #action4 {background: no-repeat  -10px -360px /1200px url(img/30_sprite_img.png);animation: action2 1s infinite steps(10)}
+
+        #act {background: no-repeat  0 0 /1200px url(img/30_sprite_img.png);}
+        #left:checked ~#act {background: no-repeat  0px 0px /1200px url(img/30_sprite_img.png);animation: action 1s infinite steps(10);}
+        #right:checked ~#act {background: no-repeat  -10px -120px /1200px url(img/30_sprite_img.png);animation: action2 1s infinite steps(10);}
+        #top:checked ~#act {background: no-repeat  -10px -240px /1200px url(img/30_sprite_img.png);;animation: action2 1s infinite steps(10);}
+        #bottom:checked ~#act {background: no-repeat  -10px -360px /1200px url(img/30_sprite_img.png);animation: action2 1s infinite steps(10);}
+        
+        #cup {width:40px;height:50px;background:no-repeat 0 0 /981px url(img/sprite.png);animation:action3 0.8s infinite steps(6)}
+        #cup2 {width:40px;height:50px;background:no-repeat 0 -120px /981px url(img/sprite.png);animation:action4 1s infinite steps(10)}
+        @keyframes action {
+            0% {background-position-x: 0}
+            100% {background-position-x: -1200px ;}
+        }
+        @keyframes action2 {
+            0% {background-position-x: -10px}
+            100% {background-position-x: -1210px ;}
+        }
+        @keyframes action3 {
+            0% {background-position-x: -200px}
+            100% {background-position-x: -490px ;}
+        }
+        @keyframes action4 {
+            0% {background-position-x: 0}
+            100% {background-position-x: -980px ;}
+        }
+        </style>
+</head>
+<body>
+<h1>Animation III</h1>
+<section>
+    <h2>모션연습</h2>
+<div id="action1"></div>
+<div id="action2"></div>
+<div id="action3"></div>
+<div id="action4"></div>
+</section>
+<input type="radio" name="a3" id="left"> <label for="left">왼쪽</label>
+<input type="radio" name="a3" id="right"> <label for="right">오른쪽</label>
+<input type="radio" name="a3" id="top"> <label for="top">위</label>
+<input type="radio" name="a3" id="bottom"> <label for="bottom">아래</label>
+<div id="act"></div>
+<p>컵헤드</p>
+<div id="cup"></div>
+<div id="cup2"></div>
+</body>
+</html>

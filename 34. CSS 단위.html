@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모바일웹</title>
+    <style>
+        * {margin:0;padding:0;box-sizing: border-box;}
+        body {border:5px solid red;height: 100vh;}
+        div {width:400px ;height:400px;border:5px solid red}
+    </style>
+</head>
+<body>
+<h1>모바일웹</h1>
+<ul>
+    <li>모바일 전용페이지 : 방문자의 접속 디바이스별로 리다이렉트 시켜주는 방식, 모바일 전용으로 최적화 가능, 유지보수/ 제작비 상승</li>
+    <li>적응형웹 : 레이아웃 크기를 %로 설계</li>
+    <li>반응형웹 : 사용자의 디바이스 폭크기에 따라 유연하게 표현하는 방식</li>
+    <!-- 폭이 중요함! -->
+</ul>
+<h2>CSS 단위</h2>
+<ul>
+    <li>px : 기본값</li>
+    <!-- 모니터의 한 점 -->
+    <li>pt : 출판디자인(호환가능)</li>
+    <!-- 인쇄용 디자인, mm, cm, m 는 웹 비권고 대상 (12px=9pt)-->
+    <li>% : 부모의 크기에 비례한 크기</li>
+    <li>숫자 : 배수</li>
+    <!-- line height : 2 = 2배 -->
+    <li>rem : body 태그에 있는 대문자M의 크기를 기준으로 함</li>
+    <!-- 반응형에 적합하지는 않음 -->
+    <li>em : 부모 글자크기에 대한 배율단위</li>
+    <li>vw / wh : 100vh</li>
+    <!-- 
+        vw : View Width
+        vh : View Height
+        vh는 많이 씀 : 100vh -> 강제로 화면의 크기에 맞추겠다 라는 의미
+        vw는 가로 스크롤이 생길경우 스크롤의 영역까지 크기로 인식하기때문에 잘 이용하지는 않음
+    -->
+</ul>
+<div>
+
+</div>
+</body>
+</html>

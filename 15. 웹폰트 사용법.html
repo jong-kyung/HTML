@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹폰트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- ctrl 클릭 후 정확한 이름 복사하기 -->
+    <style>
+    #noto li {font-size:30px; font-family:'Noto Sans KR';}
+    #noto li:first-child {font-weight:100}
+    #noto li:nth-child(2) {font-weight:300}
+    #noto li:nth-child(3) {font-weight:400}
+    #noto li:nth-child(4) {font-weight:500}
+    #noto li:nth-child(5) {font-weight:700}
+    #noto li:nth-child(6) {font-weight:900}
+
+    @font-face 
+    {font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;}
+
+    ul:nth-child(2) li:nth-child(2) {font-size:30px; font-family: 'GangwonEduPowerExtraBoldA'}
+
+    </style>
+</head>
+<body>
+<h1></h1>
+<ul>
+    <li>구글웹폰트: https://fonts.google.com/</li>
+    <li>눈누 : https://noonnu.cc/font_page/805 </li>
+</ul>
+<ul id="noto">
+    <li>노토 산스 코리안 100</li>
+    <li>노토 산스 코리안 300</li>
+    <li>노토 산스 코리안 400</li>
+    <li>노토 산스 코리안 500</li>
+    <li>노토 산스 코리안 700</li>
+    <li>노토 산스 코리안 900</li>
+</ul>
+</body>
+</html>

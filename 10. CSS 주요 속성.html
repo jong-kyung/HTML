@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 주요속성</title>
+    <style>
+        #border li:first-child {border:5px dotted red;}
+        /* 선타입 : solid-실선, dashed-파선, dotted-점선 */
+        #border li:nth-child(2) {border:5px solid green;border-radius: 0px 10px 5px;}
+        /* 0은 어떤단위든 상관없기때문에 단위생략가능 */
+        /* css에서 수치 4개 쓰는 곳에서의 숨은 규칙 
+        - 10px : 4군데 모두 같은 수치
+        - 10px 0 :  상하, 좌우의 값으로 적용
+        - 10px 0 5px : 상, 좌우, 하
+        - 10px 0 5px 2px : 상 우 하 좌로 적용(시계방향)
+        */
+        #border li:nth-child(3) {border:1px solid red;border-color:green}
+        #border li:nth-child(4) {border-bottom: 5px solid salmon}
+
+        #font li:first-child {color:red}
+        #font li:nth-child(2) {font-size:20px}
+        #font li:nth-child(3) {font-family:궁서, 명조, serif;}
+        /* 서체는 최소 두개 이상 적어주기, 마지막은 기본서체 적어주기,
+        띄어쓰기가 있는 서체는 ''로 묶어주기 ex)'noto sans serif' */
+        #font li:nth-child(4) {font-weight: bold;}
+        #font li:nth-child(5) {font-style: italic;}
+        #font li:nth-child(6) {font: bold italic 20px/40px 궁서}
+        #font li:nth-child(7) {line-height:200%}
+        #font li:nth-child(8) {text-indent : 20px}
+        #font li:nth-child(9) {font-size:30px; font-weight:bold; text-shadow: 2px 2px 0px red, 4px 4px 0px orange, 6px 6px 0 yellow, 8px 8px 0 green;}
+        /*첫번째값 : 좌우, 두번째값: 상하, 세번째값: 블러값, 네번째값 : 색상  */
+        #font li:nth-child(10) {user-select: none;}
+        #font li:nth-child(11) {letter-spacing: 3px;}
+        #font li:last-child {text-align:center}
+
+        #bg li {height:200px;}
+        #bg li:first-child {background-color: green;}
+        #bg li:nth-child(1)~li {background-image: url(img/2-2.gif);}
+        #bg li:nth-child(3) {background-size: contain;}
+        /* % : 가로,세로 가능(보통 잘 안씀) 
+        cover: 가득 채우는 방식 빈칸없이 가득 채움 (제일 많이 씀)
+        contatin : 빈공간이 생기더라도 짤리지 않게*/
+        #bg li:nth-child(4) {background-repeat: no-repeat;}
+        /* 보통 contain과 함께 사용 */
+        #bg li:nth-child(5) {background-size:150px;background-repeat: no-repeat;background-position: center 50%;}
+        /* 앞에 쓰는게 가로 (center), 뒤에 쓰는게 세로(right) */
+        #bg li:last-child {background: center right / 160px;background-repeat: no-repeat;}
+        
+        #size li {border:3px solid darkkhaki}
+        #size li:first-child {width:50%}
+        #size li:nth-child(2) {height:100px}
+        #size li:nth-child(3) {min-width:200px;max-width:500px}
+        /* 보통 %를 많이 사용 */
+
+        #margin li {border:10px solid darkorchid;width:500px}
+        #margin li:nth-child(1) {margin:10px 20px 0;}
+        #margin li:nth-child(2) {padding:10px 5px 4px 8px;}
+
+        #dp li {border:4px solid darkblue}
+        #dp li:nth-child(1) {display: inline;}
+        #dp li:nth-child(3) {display: inline-block;}
+
+        #po {border:1px solid violet; margin:50px;padding:0;height:500px;position:relative;}
+        /* position:relative - 앱솔루트의 기준점을 만듬 */
+        #po li {border:1px solid burlywood;list-style: none;margin:0;}
+        /* list-style: none - 점없애기 */
+        #po li:nth-child(1) {border:200px solid #f9c0a3; border-radius: 300px;background-color:#f9c0a3;position:absolute;left:200px;top:50px}
+        #po li:nth-child(2) {border:30px solid black; border-radius:50px;background-color:black;width:5px;height: 5px; position:absolute;left:300px;top:150px;}
+        #po li:nth-child(3) {border:30px solid black; border-radius:50px;background-color:black;width:5px;height: 5px; position:absolute;left:450px;top:150px;}
+        #po li:nth-child(4) {border:30px solid red; border-radius:50px;background-color:red;width:100px;height: 5px; position:absolute;left:320px;top:300px;}
+
+    /* 내가 원하는 위치에 고정시킬 수 있음, 다른거에 영향을 주지 않고 좌표를 써서 이동가능 */
+
+    </style>
+</head>
+<body>
+<h1>주요속성</h1>    
+<h2>외곽선 관련</h2>
+<ul id="border">
+    <li>border : 1px solid red(대표속성) / 선설정</li>
+    <li>border-radius : 10px 0px 10px 0/ 둥근모서리</li>
+    <li>border-color : green</li>
+    <li>border-bottom/top/left/right : 1px solid purple</li>
+</ul>
+
+<h2>글자관련</h2>
+<ul id="font">
+    <li>color : red / 글자색</li>
+    <li>font-size : 20px / 글자크기</li>
+    <li>font-family : 궁서 / 서체 </li>
+    <li>font-weight : bold, 100~900 / 글자두께</li>
+    <li>font-style : italic,, normal / 이탤릭체</li>
+    <li>font : bold italic 20px/40px 궁서</li>
+    <!-- 앞은 글자의 크기 / 뒤는 줄간격 -->
+    <!-- 글자크기/줄간격 궁서 : 순서 꼭 지켜주기  -->
+    <li>line-height : 200px / 줄간격</li>
+    <li>text-indent : 20px / 들여쓰기,내어쓰기 </li>
+    <li>text-shadow : 2px 2px 0 red / 글자그림자</li>
+    <li>user-select : none / 드래그 방지 </li>
+    <li>letter-spacing : 3px / 자간</li>
+    <li>text-align : center, left, right, justify / 문단정렬</li>
+    <!-- justify : 양끝정렬 -->
+</ul>
+
+<h2>배경</h2>
+<ul id="bg">
+    <li>background-color : green / 배경색</li>
+    <li>background-image : url ()</li>
+    <!-- png,jpg,gif로 하기 -->
+    <li>backgroud-size : 100%, 100px, cover, contain</li>
+    <li>background-repeat : no-repeat</li>
+    <li>background-position : left, right, top, bottom, 100px, 50% </li>
+    <li>background : center / cover url() / 배경의 대표속성 </li>
+    <!-- 위치값 / 크기값 url 
+        url을 가장 마지막에 작성 -->
+</ul>
+
+<h2>크기관련</h2>
+<ul id="size">
+    <li>width : 50% /폭</li>
+    <li>height : 100px /높이</li>
+    <li>min-width/max-width : 200px / 최소폭,최댓값</li>
+    <li>min-height/max-height : 최소폭, 최댓값</li>
+</ul>
+
+<h2>여백관련</h2>
+<ul id="margin">
+    <li>margin : 10px / 외곽선 바깥의 여백</li>
+    <li>padding : 10px / 외곽선 안쪽의 여백</li>
+</ul>
+
+<h2>display 속성</h2>
+<ul id="dp">
+    <li>display : inline / 글자속성, span, strong, a... / 크기조정 X</li>
+    <li>display : block / 블록속성, li, ul, nav, haeder, aside, article, div 등 레이아웃 형태</li>
+    <li>display : inline-block / 인라인블록속성, img, table, input.../ 크기조정, 글자정렬</li>
+</ul>
+
+<h2>위치관련</h2>
+<ul>
+    <li>position:static : (기본)</li>
+    <li>position:absolute : left/right, top/bottom 좌표값으로 이동, layer속성을 가지며 일반 태그보다 상위로 올라간다</li>
+    <!-- 둘중에 하나씩만 쓰는거 ex) left,top -->
+    <li>position:relative : 자손의 position값 기준좌표로 지정</li>
+    <li>position:fixed : 기본적으로 absolute속성 + 스크롤 고정</li>
+</ul>
+<ul id="po">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가로메뉴(2뎁스)</title>
+    <style>
+        * {margin:0;padding:0;list-style: none;}
+        body {text-align: center;}
+        h1 {text-align: center;padding:50px 0 10px}
+        a {text-decoration: none;}
+        /* 가로메뉴 */
+        .menu {display: inline-flex}
+        /* inline-flex를 주면 내용에 맞게 늘어나거나 줄어듬 */
+        .menu >li {position:relative}
+        .menu >li>a, label {color:#aaa;padding:10px 20px;display: block;font-weight: bold;background:#333}
+        .menu >li>a:hover,.menu >li>label:hover {color:#333;background: #aaa;}
+        #menu1 ul,#menu2 ul {position:absolute;padding-top:20px;opacity:0;transition: ease all .3s;width:0;border:1px solid red}
+        #menu1 >li:hover ul {opacity:1;width:100%;}
+        .menu ul a {display: block;padding:3px 0 7px;color:#aaa;transition:ease all .3s;width:0;white-space: nowrap;overflow: hidden;}
+        /* 줄바꿈 방지 */
+        .menu ul a:hover {color:#333;font-weight: bold;}
+        .menu ul li:nth-child(2) a {transition-delay: 0.05s;}
+        .menu ul li:nth-child(3) a {transition-delay: 0.1s;}
+        .menu ul li:nth-child(4) a {transition-delay: 0.15s;}
+        #menu1 >li:hover ul a {width:100%;} 
+
+        /* 세로메뉴 */
+        #menu2 {margin-top:200px;flex-direction: column;position:absolute;left:0}
+        #menu2 ul {margin-left:100%;position:absolute;top:0;padding-top:0}
+        #menu2 input {display: none;}
+        #menu2 input:checked + ul {opacity:1;width:100%;}
+        #menu2 input:checked+ul a {width:100%;} 
+
+        /* 아코디언메뉴 */
+        #menu3 {position:absolute;left:0;margin-top:500px;flex-direction: column;}
+        #menu3 input {display: none;}
+        #menu3 ul a {width:100%;font-size: 0;padding:0}
+        #menu3 input:checked+ul a {font-size:20px;padding:3px 0 7px} 
+    </style>
+</head>
+<body>
+<h1>가로메뉴(2Depth)</h1>
+<ul id="menu1" class="menu">
+    <li><a href="#">메인메뉴1</a>
+        <ul>
+            <li><a href="#">sub menu1</a></li>
+            <li><a href="#">sub menu2</a></li>
+            <li><a href="#">sub menu3</a></li>
+            <li><a href="#">sub menu4</a></li>
+        </ul>
+    </li>   
+    <li><a href="#">메인메뉴2</a>
+        <ul>
+            <li><a href="#">sub menu1</a></li>
+            <li><a href="#">sub menu2</a></li>
+            <li><a href="#">sub menu3</a></li>
+            <li><a href="#">sub menu4</a></li>
+        </ul>
+    </li> 
+    <li><a href="#">메인메뉴3</a>
+        <ul>
+            <li><a href="#">sub menu1</a></li>
+            <li><a href="#">sub menu2</a></li>
+            <li><a href="#">sub menu3</a></li>
+            <li><a href="#">sub menu4</a></li>
+        </ul>
+    </li> 
+    <li>
+        <a href="#">메인메뉴4</a>
+    </li> 
+</ul>
+<ul id="menu2" class="menu">
+    <li><label for="m1">메인메뉴1</label>
+        <input type="radio" name="menu" id="m1">
+        <!-- 네임을 동일하게주면 같은 네임을 가진애들중 하나만 선택이됨 -->
+        <ul>
+            <li><a href="#">sub menu1</a></li>
+            <li><a href="#">sub menu2</a></li>
+            <li><a href="#">sub menu3</a></li>
+            <li><a href="#">sub menu4</a></li>
+        </ul>
+    </li>   
+    <li><label for="m2">메인메뉴2</label>
+        <input type="radio" name="menu" id="m2">
+        <ul>
+            <li><a href="#">sub menu1</a></li>
+            <li><a href="#">sub menu2</a></li>
+            <li><a href="#">sub menu3</a></li>
+            <li><a href="#">sub menu4</a></li>
+        </ul>
+    </li> 
+    <li><label for="m3">메인메뉴3</label>
+        <input type="radio" name="menu" id="m3">
+        <ul>
+            <li><a href="#">sub menu1</a></li>
+            <li><a href="#">sub menu2</a></li>
+            <li><a href="#">sub menu3</a></li>
+            <li><a href="#">sub menu4</a></li>
+        </ul>
+    </li> 
+    <li>
+        <a href="#">메인메뉴4</a>
+    </li> 
+</ul>
+<!-- 세로형일땐 checked를 많이 이용함 -->
+<h2>아코디언메뉴(세로)</h2>
+<ul id="menu3" class="menu">
+    <li><label for="m_1">메인메뉴1</label>
+        <input type="radio" name="men" id="m_1">
+        <!-- 네임을 동일하게주면 같은 네임을 가진애들중 하나만 선택이됨 -->
+        <ul>
+            <li><a href="#">sub menu1</a></li>
+            <li><a href="#">sub menu2</a></li>
+            <li><a href="#">sub menu3</a></li>
+            <li><a href="#">sub menu4</a></li>
+        </ul>
+    </li>   
+    <li><label for="m_2">메인메뉴2</label>
+        <input type="radio" name="men" id="m_2">
+        <ul>
+            <li><a href="#">sub menu1</a></li>
+            <li><a href="#">sub menu2</a></li>
+            <li><a href="#">sub menu3</a></li>
+            <li><a href="#">sub menu4</a></li>
+        </ul>
+    </li> 
+    <li><label for="m_3">메인메뉴3</label>
+        <input type="radio" name="men" id="m_3">
+        <ul>
+            <li><a href="#">sub menu1</a></li>
+            <li><a href="#">sub menu2</a></li>
+            <li><a href="#">sub menu3</a></li>
+            <li><a href="#">sub menu4</a></li>
+        </ul>
+    </li> 
+    <li>
+        <a href="#">메인메뉴4</a>
+    </li> 
+</ul>
+</body>
+</html>

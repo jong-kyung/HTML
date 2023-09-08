@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃(flex)</title>
+    <style>
+        * {margin:0;padding:0;list-style:none;}
+        h1 {text-align: center;padding:20px;}
+        ul {border:1px solid red;display: flex;max-width: 800px; flex-wrap: wrap;gap:10px;min-height: 500px; justify-content: center;align-items: center;}
+        li {background:green;padding: 10px;border:1px solid purple;width:100px;height: 100px;}
+        /*
+          - flex-wrap : wrap // 다음줄로 넘어가는 모드 
+          - gap : 중간의 여백만 주기
+          - justify-content :  center/flex-start/flex-end 주방향 정렬
+          - align-items :  center/flex-start/flex-end 보조방향 정렬
+          - flex-direction : 주방향 설정
+        */
+    </style>
+</head>
+<body>
+<h1>레이아웃(flex)</h1>
+<ul>
+    <li>1.</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>0</li>
+</ul>
+</body>
+</html>

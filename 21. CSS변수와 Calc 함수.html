@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS변수 : root, calc()</title>
+    <style>
+        /* 가상선택자의 한종류임 전체 초기화보다 먼저 써줌 , (--네이밍) */
+        :root {
+            --mainColor: green;
+            --subColor: orange;
+            --runt: .3s
+        }
+
+        /* 웹에서 자주쓰는 방식 _ or 대문자 
+        main_color / mainColor */
+        #root li {
+            border: 1px solid var(--subColor);
+            color: var(--mainColor)
+        }
+
+        #root li:hover {
+            background: var(--mainColor);
+            color: var(--subColor);
+            border-color: var(--subColor);
+            transition: ease all var(--runt);
+        }
+
+        #calc li {
+            background: gray;
+        }
+
+        #calc li {
+            width: calc(100% - 50px);
+        }
+
+        /* 
+        사용자의 사용환경에 따라 보이는 모습이 다르게 하는것을 방지 
+        사칙연산 가능 ( +, -, *, / ) 
+        clac 안에 calc 를 또 넣을 수 있음
+        */
+    </style>
+</head>
+
+<body>
+    <h1>css변수와 calc 함수</h1>
+    <h2>CSS변수 개념 : root </h2>
+    <ul id="root">
+        <li>css 최상단에서 보통 선언</li>
+        <li>변수사용 : var(변수명)</li>
+        <li></li>
+        <li></li>
+    </ul>
+    <h2>calc()</h2>
+    <ul id="calc">
+        <li>상대크기와 절대크기를 혼합해서 사칙연산 가능</li>
+        <li>연산자 양옆으로 띄어쓰기 주의</li>
+    </ul>
+</body>
+
+</html>

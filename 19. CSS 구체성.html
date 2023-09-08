@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구체성</title>
+    <style>
+        li:first-child {color:green} /* 점수 : 0 1 1 */
+        /* 가상클래스도 클래스 점수로 반영됨 */
+        li {color:red;}
+        li {color:blue !important;}  /* 인라인, 아이디, 클래스, 태그 순으로 우선순위 적용 */
+        /* 점수 : 0 0 1 */
+        /* 올림픽과 유사 / 금메달과 은메달 갯수가 다를때 금메달이 많은 쪽 우승,
+        금메달 갯수가 같을때 은메달 갯수가 많은 쪽 우승, 점수가 다 같은 경우엔 소스의 마지막 실행이 우선*/
+    </style>
+</head>
+<body>
+<h1>구체성</h1>
+<p>CSS의 적용되는 우선순위</p>
+<ul>
+    <li>하드웨어 중요속성</li>
+    <li>중요속성(!important)</li>
+    <li>하드웨어 일반속성</li>
+    <li>구체성 점수가 높은것 우선</li>
+    <li>소스의 마지막 실행이 우선</li>
+    <li></li>
+</ul>
+</body>
+</html>

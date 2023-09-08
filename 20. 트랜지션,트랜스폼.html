@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>트랜지션/트랜스폼</title>
+    <style>
+       li {border : 1px solid gray; transition: ease all .3s;width: 100%;}
+        /* ease : 가속도(점점빨라지는속도) , linear : 일정한 속도 */
+        #ts li:first-child:hover {background:gray; color: white}
+        /* 0 2 1 점 / 클래스 : 가상클래스 2개 , 태그 li 1개 */
+        #ts li:nth-child(2):hover {width:50%;}
+        #ts li:nth-child(3):hover {box-shadow: 3px 3px 0px 0px red, 6px 6px 0 0 orange ;}
+        /* 그림자의 위치값 x , 그림자의 위치값 y ,  그림자의 블러, 그림자의 퍼지는 정도  */
+
+        #tf li {width:200px; height:50px;margin:10px;list-style:none}
+        #tf li:first-child:hover {margin-top:50px;transform: translate(0,-10px);}
+        /* 가로축, 세로축 */
+        #tf li:nth-child(2):hover {transform: rotate(90deg);}
+        #tf li:nth-child(3):hover {transform:scale(1.5)}
+        /* 확대해주는 기능 */
+        #tf li:nth-child(4):hover {transform:skew(30deg);}
+        #tf li:nth-child(5) {transform-origin: 100% 100%;}
+        /* 기본값은 center center / 기준을 줄때엔 무조건 기본태그에게 주기 */
+        #tf li:nth-child(5):hover {transform:rotate(90deg);}
+    </style>
+</head>
+<body>
+<h1>트랜지션 / 트랜스폼</h1>
+<h2>Transition</h2>
+<ul id="ts">
+    <li>수치의 중간과정을 애니메이션으로 만들어주는 속성</li>
+    <!-- 수치를 꼭 부여해야함 -->
+    <li>호버시 폭이 줄어들게</li>
+    <li>호버시 그림자 생기게</li>
+    <li>가속도 : linear, ease, 제너레이터 https://cubic-bezier.com</li>
+    <!-- linear :일정한 속도 / ease : 처음과 끝이 조금 느림 -->
+</ul>
+<h2>Transform</h2>
+<ul id="tf">
+    <li>translate(0,-10px)</li>
+    <li>rotate(90deg)</li>
+    <li>scale(1.5)</li>
+    <li>skew(30deg)</li>
+    <li>transform-origin: 중심축 설정</li>
+</ul>
+</body>
+</html>

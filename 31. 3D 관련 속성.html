@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D 관련속성</title>
+    <style>
+        * {margin:0;padding:0;}
+        h1 {text-align: center;padding:30px;}
+        span {display:block;width:50px;height:20px;background: red;transition: ease all .3s;}
+        #text {padding-left: 60px;transform-style:preserve-3d;}
+        #text li {border:1px solid green;}        
+        #text li:nth-child(1):hover span {transform: translateX(100%);}
+        #text li:nth-of-type(2):hover {transform: rotateY(45deg);transition: ease all .3s;}
+        #text li:nth-child(2):hover span {transform: rotateY(30deg);}
+        #text li:nth-child(3):hover span {transform: scale(1.5)}
+        #text li:nth-child(4):hover span {transform: skewY(-30deg)}
+        .per {perspective: 500px;}
+    </style>
+</head>
+<body>
+<h1>3D 관련속성</h1>
+<div class="per">
+<ul id="text">
+    <li><span></span>translate()/translateX()/translateY()/translateZ()/translate3D() : 이동</li>
+    <li><span></span>rotate()/rotateX()/rotateY()/rotateZ()/rotate3D() : 회전</li>
+    <li><span></span>scale()/sacleX()/scaleY()/scaleZ()/scale3D() : 크기</li>
+    <li><span></span>skew()/skewX()/skewY()/skewZ()/skew3D() : 비틀기</li>
+    <li>transform-style : preserve-3d (자식을 3D처리 하겠다.)</li>
+    <li>perspective : 원근감 (화면과의 거리값)</li>
+</ul>
+</div>
+</body>
+</html>
